@@ -2,11 +2,11 @@ import { App } from 'vue'
 
 import { createI18n as baseCreateI18n } from 'vue-i18n'
 
-const files = import.meta.glob('../i18n/*.ts', { eager: true })
+const files = import.meta.glob('../i18n/*.json', { eager: true })
 const messages = {}
 
 Object.entries(files).forEach(([filename, value]: any) => {
-    const name = filename.replace('../i18n/', '').replace('.ts', '')
+    const name = filename.replace('../i18n/', '').replace('.json', '')
 
     messages[name] = value.default
 })
