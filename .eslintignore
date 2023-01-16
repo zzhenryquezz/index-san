@@ -4,3 +4,5 @@ out
 artifacts
 packages/core/dist-types
 packages/examples
+
+packages/bookmark/components.d.ts

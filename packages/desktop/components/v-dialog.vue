@@ -3,13 +3,15 @@ export default { inheritAttrs: false }
 </script>
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useVModel } from 'vue-wind/composables/v-model'
+import { useVModel } from '@vueuse/core'
+
 const props = defineProps({
     modelValue: {
         type: Boolean,
         default: null,
     },
 })
+
 const emit = defineEmits(['update:modelValue'])
 
 const innerModel = ref(false)

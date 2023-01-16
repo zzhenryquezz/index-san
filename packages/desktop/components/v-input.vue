@@ -5,9 +5,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { createBindings } from '@/composables/binding'
+import { createBindings } from '../composables/binding'
 import { computed, ref, useAttrs, onMounted } from 'vue'
-import { useVModel } from 'vue-wind/composables/v-model'
+import { useVModel } from '@vueuse/core'
 
 const props = defineProps({
     modelValue: {

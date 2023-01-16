@@ -3,5 +3,12 @@
         "editorjs",
         "monaco",
         "registerables"
+    ],
+    "json.schemas": [
+        {
+        "fileMatch": ["bookmark/manifest.json"],
+        "url": "https://json.schemastore.org/chrome-manifest.json"
+        }
     ]
+    
 }

@@ -1,0 +1,20 @@
+{
+  "name": "bookmark",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^1.0.14",
+    "@types/chrome": "^0.0.208",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "unplugin-vue-components": "^0.22.12"
+  }
+}
