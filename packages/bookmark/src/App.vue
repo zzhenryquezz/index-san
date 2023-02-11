@@ -1,5 +1,17 @@
+<script setup lang="ts">
+import NNotify from '@is/app/modules/notify/components/NNotify.vue'
+import { useStore } from './stores/workspace'
+
+const store = useStore()
+
+store.setWorkspaces()
+</script>
 <template>
-    <div class="h-screen w-screen flex items-center justify-center text-t-primary bg-b-primary">
-        <h1 class="text-lg font-bold">Hello word</h1>
-    </div>
+    <v-layout class="text-t-primary bg-b-primary">
+        <v-layout-content>
+            <router-view />
+
+            <n-notify />
+        </v-layout-content>
+    </v-layout>
 </template>

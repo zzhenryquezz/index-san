@@ -4,11 +4,16 @@ import vue from '@vitejs/plugin-vue'
 import { crx } from '@crxjs/vite-plugin'
 import manifest from './manifest.json'
 
+import baseConfig from '@is/app/vite.config'
+
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    resolve: {
+        alias: baseConfig.resolve.alias,
+    },
     plugins: [
         vue(),
         crx({ manifest }),

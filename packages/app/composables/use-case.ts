@@ -1,21 +1,28 @@
 import { useStore } from '@modules/notify/store'
 import { i18n } from '@plugins/i18n'
 
-import type { CasesKeys, CasesMethod, CasesParams } from '@core/app'
+import type { CasesKeys, CasesMethod, CasesParams } from '@is/core/app'
 
 export interface DataResponse<T> {
     data: T
 }
 
+interface Options {
+    silent?: boolean
+    serialize?: boolean
+}
+
 export async function useCase<K extends CasesKeys, T = CasesMethod<K>>(
     name: K,
     args?: CasesParams<K>,
-    silent = false
+    options?: Options
 ): Promise<Awaited<T>> {
     const notify = useStore()
     const start = Date.now()
 
-    args = args ? JSON.parse(JSON.stringify(args)) : {}
+    if (options?.serialize === true || options?.serialize === undefined) {
+        args = args ? JSON.parse(JSON.stringify(args)) : {}
+    }
 
     let result: any = undefined
     let error: any = undefined
@@ -44,7 +51,7 @@ export async function useCase<K extends CasesKeys, T = CasesMethod<K>>(
         message = i18n.global.t(error.i18nKey, error.i18nArgs)
     }
 
-    if (!silent) {
+    if (!options?.silent) {
         notify.error(message)
         console.error(error)
     }

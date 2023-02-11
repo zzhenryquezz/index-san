@@ -99,7 +99,7 @@ export default class App {
 
     public useCase<K extends CasesKeys, T = CasesMethod<K>>(
         name: K,
-        args: CasesParams<K>
+        args?: CasesParams<K>
     ): Promise<Awaited<T>> {
         const option = this.cases[name]
 
