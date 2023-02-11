@@ -10,6 +10,7 @@ export const useStore = defineStore('workspace', () => {
     const workspaces = ref<BrowserWorkspace[]>([])
 
     const currentId = ref<string | null>(null)
+    const current = computed(() => workspaces.value.find((w) => w.id === currentId.value))
 
     async function setWorkspaces() {
         await useCase('list-workspaces')
@@ -29,6 +30,8 @@ export const useStore = defineStore('workspace', () => {
         }
 
         permission = await workspace.config.directoryHandle.queryPermission()
+
+        console.log(permission)
 
         if (permission !== 'granted') return
 
@@ -54,6 +57,7 @@ export const useStore = defineStore('workspace', () => {
     return {
         workspaces,
         currentId,
+        current,
 
         setWorkspaces,
         setActive,
