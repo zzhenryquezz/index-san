@@ -23,7 +23,9 @@ export const useStore = defineStore('workspace', () => {
         let permission = await workspace.config.directoryHandle.queryPermission()
 
         if (permission !== 'granted') {
-            await workspace.config.directoryHandle.requestPermission()
+            await workspace.config.directoryHandle.requestPermission({
+                mode: 'readwrite',
+            })
         }
 
         permission = await workspace.config.directoryHandle.queryPermission()

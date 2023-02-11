@@ -14,6 +14,8 @@ export default {
     filter: 'Filter | Filters',
     view: 'View | Views',
     drive: 'Drive | Drives',
+    form: 'Form | Forms',
+    field: 'Field | Fields',
     areYouSure: 'Are you sure?',
     browse: 'Browse',
     version: 'Version',

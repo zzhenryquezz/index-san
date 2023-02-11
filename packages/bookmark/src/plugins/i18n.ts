@@ -11,6 +11,8 @@ const messages: Record<string, any> = {
 function translate(key: string, args?: number | string[]) {
     const locale = messages[current]
 
+    if (!locale[key]) return key
+
     const pattern = locale[key].split('|')
     let message = pattern[0]
 

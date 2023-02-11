@@ -10,6 +10,10 @@ const routes: RouteRecordRaw[] = [
         path: '/workspaces',
         component: () => import('../pages/WorkspaceList.vue'),
     },
+    {
+        path: '/forms',
+        component: () => import('../pages/FormList.vue'),
+    },
 ]
 
 export default routes
